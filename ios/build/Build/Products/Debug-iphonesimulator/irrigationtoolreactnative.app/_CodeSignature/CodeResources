@@ -6,7 +6,23 @@
 	<dict>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<data>
-		cQypYaTjHJpKp29fBdyQI2oDqLk=
+		A/FPzsgnGud2qkz3ntFSXmVrfRk=
+		</data>
+		<key>Entypo.ttf</key>
+		<data>
+		R4cKZ91Qhxdl95nKqX2ochnuR8U=
+		</data>
+		<key>EvilIcons.ttf</key>
+		<data>
+		QZrcvnS7qREj2zspB3XjYvIS8+U=
+		</data>
+		<key>FontAwesome.ttf</key>
+		<data>
+		E7HqtlqYPHpzvHmXxHnWaUP3xss=
+		</data>
+		<key>Foundation.ttf</key>
+		<data>
+		SyvObHkkk6SlcWtv7C2+/olJLD8=
 		</data>
 		<key>Frameworks/IDEBundleInjection.framework/IDEBundleInjection</key>
 		<data>
@@ -51,7 +67,19 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		SJTDE7BEZytbQ5aggKCByTxxqFs=
+		0ZQPoM0M6tAWs0mBRyJvtWA/4A0=
+		</data>
+		<key>Ionicons.ttf</key>
+		<data>
+		D3lWcE/mG0nEHqGiIFEkD3AKK0Q=
+		</data>
+		<key>MaterialIcons.ttf</key>
+		<data>
+		/AXeMSNOAJD33cKM4bI69AJssdo=
+		</data>
+		<key>Octicons.ttf</key>
+		<data>
+		XF4wYBlFFw56fAqk3ggmUtwnNQI=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -63,7 +91,7 @@
 		</data>
 		<key>PlugIns/irrigationtoolreactnativeTests.xctest.dSYM/Contents/Resources/DWARF/irrigationtoolreactnativeTests</key>
 		<data>
-		lyLKerxQw/ykjB4cjTtKtCQaO8w=
+		BvAibvZyXUWu+jNBpZWc9W/PmS8=
 		</data>
 		<key>PlugIns/irrigationtoolreactnativeTests.xctest/Info.plist</key>
 		<data>
@@ -75,7 +103,23 @@
 		</data>
 		<key>PlugIns/irrigationtoolreactnativeTests.xctest/irrigationtoolreactnativeTests</key>
 		<data>
-		MKlCUNka7KJi5FAzUuSiUD85Si4=
+		Xz9UTFHzl2oKBFGzXPHExpHj1LA=
+		</data>
+		<key>Roboto.ttf</key>
+		<data>
+		HR1B/K3Fcd7LZEQhG3mTuZzpJuI=
+		</data>
+		<key>Roboto_medium.ttf</key>
+		<data>
+		rbw73kJLz328OPFIAFyDGYJYkfI=
+		</data>
+		<key>SimpleLineIcons.ttf</key>
+		<data>
+		n/uBpaEREuKS8swyPphIa61ZdZk=
+		</data>
+		<key>Zocial.ttf</key>
+		<data>
+		C9pZx7zT05J94EfgkYdaRCi/0as=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -84,11 +128,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cQypYaTjHJpKp29fBdyQI2oDqLk=
+			A/FPzsgnGud2qkz3ntFSXmVrfRk=
 			</data>
 			<key>hash2</key>
 			<data>
-			DQdMIHNzbZ8UE+BeianKDADz3xIivMx7Vyn6eakJ024=
+			zKTK7swzyuqVESh9rkNmJ4EuNsh2oZsY0PqXJIpNh+A=
+			</data>
+		</dict>
+		<key>Entypo.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			R4cKZ91Qhxdl95nKqX2ochnuR8U=
+			</data>
+			<key>hash2</key>
+			<data>
+			3QhJoVkfiNp5N7I/kiQYpc7FTgdeCePMyo/rYgFvqoI=
+			</data>
+		</dict>
+		<key>EvilIcons.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			QZrcvnS7qREj2zspB3XjYvIS8+U=
+			</data>
+			<key>hash2</key>
+			<data>
+			J9GohnZmGjoiaVdpUtb3ANoFZEvAMFUR3iO3D3HKVDY=
+			</data>
+		</dict>
+		<key>FontAwesome.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			E7HqtlqYPHpzvHmXxHnWaUP3xss=
+			</data>
+			<key>hash2</key>
+			<data>
+			qljzPyOaD7AvXHpsRcBD16msmgkzNYBmlOzW1O3A1qg=
+			</data>
+		</dict>
+		<key>Foundation.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			SyvObHkkk6SlcWtv7C2+/olJLD8=
+			</data>
+			<key>hash2</key>
+			<data>
+			fh3QPdTOkLZYBSVUzXRZ3xZxZxc4mlUvpMbVal+JM+Y=
 			</data>
 		</dict>
 		<key>Frameworks/IDEBundleInjection.framework/IDEBundleInjection</key>
@@ -192,6 +280,39 @@
 			npuwVsQMT6N9VGE0YqH9a729MzPY+LnokIqdklNFhIs=
 			</data>
 		</dict>
+		<key>Ionicons.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			D3lWcE/mG0nEHqGiIFEkD3AKK0Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			u0dnmwuuuEgbf1HGitM65aUmc2y1CxcXzGD/a2X5CKM=
+			</data>
+		</dict>
+		<key>MaterialIcons.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/AXeMSNOAJD33cKM4bI69AJssdo=
+			</data>
+			<key>hash2</key>
+			<data>
+			t/Sjq1YgSPKN0fppFgG8QzY6YdD4dtFtgxbFLk8y1pY=
+			</data>
+		</dict>
+		<key>Octicons.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			XF4wYBlFFw56fAqk3ggmUtwnNQI=
+			</data>
+			<key>hash2</key>
+			<data>
+			sw1aNDI0CqTWoFwAl/BoysSnzVrJqfoRSzi3y6/KJCM=
+			</data>
+		</dict>
 		<key>PlugIns/irrigationtoolreactnativeTests.xctest.dSYM/Contents/Info.plist</key>
 		<dict>
 			<key>hash</key>
@@ -207,11 +328,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lyLKerxQw/ykjB4cjTtKtCQaO8w=
+			BvAibvZyXUWu+jNBpZWc9W/PmS8=
 			</data>
 			<key>hash2</key>
 			<data>
-			YHCndoI/BNJ0mRRMAfHd45r1g3Jgq2zbhKRxKbCOgYc=
+			6/q/ZnNnYtPxhlYTgml+yT5owTAsePaF3x9GtBU8zjI=
 			</data>
 		</dict>
 		<key>PlugIns/irrigationtoolreactnativeTests.xctest/Info.plist</key>
@@ -240,11 +361,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			MKlCUNka7KJi5FAzUuSiUD85Si4=
+			Xz9UTFHzl2oKBFGzXPHExpHj1LA=
 			</data>
 			<key>hash2</key>
 			<data>
-			74BCEaRZCe1pmZ7pvHovMC6UYxjrRmxNTgeOr4+tfcI=
+			GQd9Y+BP37Mlq5s3+9iBCjUDMq+U1mcKEFwhkXJg2Ek=
+			</data>
+		</dict>
+		<key>Roboto.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			HR1B/K3Fcd7LZEQhG3mTuZzpJuI=
+			</data>
+			<key>hash2</key>
+			<data>
+			su+ryl6kvFbuqClxNwa1zQeIuCrKFTvUrd6bFXOTO08=
+			</data>
+		</dict>
+		<key>Roboto_medium.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			rbw73kJLz328OPFIAFyDGYJYkfI=
+			</data>
+			<key>hash2</key>
+			<data>
+			0Mj0SndLhJDO7imInNq8cjgfo1+2IWGaeP0oIR2QJBw=
+			</data>
+		</dict>
+		<key>SimpleLineIcons.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			n/uBpaEREuKS8swyPphIa61ZdZk=
+			</data>
+			<key>hash2</key>
+			<data>
+			P1Ad2wXHCCm7tRz+nKn/9X854GBFfCV7PM8l33Z/CHA=
+			</data>
+		</dict>
+		<key>Zocial.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			C9pZx7zT05J94EfgkYdaRCi/0as=
+			</data>
+			<key>hash2</key>
+			<data>
+			17EKHr4YMOWi8I9JA7moDiwZEsDdL3O5P88r+DIhZgI=
 			</data>
 		</dict>
 	</dict>
