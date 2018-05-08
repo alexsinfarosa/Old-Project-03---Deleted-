@@ -1,5 +1,8 @@
 import React from "react";
-import { StackNavigator } from "react-navigation";
+import { createStackNavigator } from "react-navigation";
+import { Provider } from "mobx-react";
+import RootStore from "./stores/RootStore";
+
 import {
   Container,
   Header,
@@ -16,20 +19,27 @@ import {
 import { Col, Row, Grid } from "react-native-easy-grid";
 
 // Screens components
-import HomeScreen from "./screens/HomeScreen";
-import AboutScreen from "./screens/AboutScreen";
+import CreateField1 from "./screens/CreateField1";
+import CreateField2 from "./screens/CreateField2";
+import MainScreen from "./screens/MainScreen";
 
-const RootStack = StackNavigator(
+//  mobx
+const app = new RootStore();
+
+const RootStack = createStackNavigator(
   {
-    Home: {
-      screen: HomeScreen
+    Step1: {
+      screen: CreateField1
     },
-    About: {
-      screen: AboutScreen
+    Step2: {
+      screen: CreateField2
+    },
+    Main: {
+      screen: MainScreen
     }
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "Step1",
     navigationOptions: {
       headerStyle: {
         backgroundColor: "#fff",
@@ -46,28 +56,9 @@ const RootStack = StackNavigator(
 export default class App extends React.Component {
   render() {
     return (
-      <Container>
-        <Header>
-          <Body>
-            <Title>Create Field</Title>
-            <Subtitle>Step 1</Subtitle>
-          </Body>
-        </Header>
-
-        <Grid>
-          <Col style={{ justifyContent: "center", alignItems: "center" }}>
-            <H1>Where is your field?</H1>
-          </Col>
-        </Grid>
-
-        <Footer>
-          <Content>
-            <Button full success>
-              <Text>Continue</Text>
-            </Button>
-          </Content>
-        </Footer>
-      </Container>
+      <Provider app={app}>
+        <RootStack />
+      </Provider>
     );
   }
 }
