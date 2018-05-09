@@ -19,7 +19,6 @@ class MainScreen extends React.Component {
   });
 
   render() {
-    const { setMainTitle } = this.props.app.paramsStore;
     return (
       <Swiper
         style={styles.wrapper}
@@ -50,7 +49,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#9DD6EB"
+    backgroundColor: "#97CAE5"
   },
   text: {
     color: "#fff",

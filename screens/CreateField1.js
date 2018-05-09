@@ -12,8 +12,14 @@ export default class App extends React.Component {
     return (
       <Container>
         <Grid>
-          <Col style={{ justifyContent: "center", alignItems: "center" }}>
-            <H1>Where is your field?</H1>
+          <Col
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "#fff"
+            }}
+          >
+            <H1>Where is your field???????</H1>
           </Col>
         </Grid>
 

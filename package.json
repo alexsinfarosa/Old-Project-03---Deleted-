@@ -18,10 +18,12 @@
     "preset": "react-native"
   },
   "dependencies": {
+    "create-react-class": "^15.6.3",
     "mobx": "^4.2.1",
     "mobx-react": "^5.1.2",
     "native-base": "^2.4.3",
     "react": "16.3.2",
+    "react-forecast": "^0.0.7",
     "react-native": "~0.55.2",
     "react-native-swiper": "^1.5.13",
     "react-navigation": "^2.0.0",

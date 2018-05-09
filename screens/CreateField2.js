@@ -12,7 +12,13 @@ export default class App extends React.Component {
     return (
       <Container>
         <Grid>
-          <Col style={{ justifyContent: "center", alignItems: "center" }}>
+          <Col
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "#fff"
+            }}
+          >
             <H1>Date of last irrigation</H1>
           </Col>
         </Grid>

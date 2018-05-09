@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
+import Forecast from "react-forecast";
 
 export default class ForecastScreen extends React.Component {
   static navigationOptions = {
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#97CAE5"
+    backgroundColor: "#92BBD9"
   },
   text: {
     color: "#fff",
