@@ -1,9 +1,10 @@
 import React from "react";
 import { Container, Content, Footer, Button, Text, H1 } from "native-base";
+import { inject, observer } from "mobx-react";
 
 import { Col, Grid } from "react-native-easy-grid";
 
-export default class App extends React.Component {
+class CreateField2 extends React.Component {
   static navigationOptions = {
     title: "Create Field - step 2",
     headerBackTitle: null
@@ -38,3 +39,5 @@ export default class App extends React.Component {
     );
   }
 }
+
+export default inject("app")(observer(CreateField2));

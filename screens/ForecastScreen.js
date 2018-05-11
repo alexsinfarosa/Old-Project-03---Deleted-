@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
-import Forecast from "react-forecast";
 
 export default class ForecastScreen extends React.Component {
   static navigationOptions = {
