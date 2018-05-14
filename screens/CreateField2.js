@@ -10,11 +10,12 @@ class CreateField2 extends React.Component {
     headerBackTitle: null
   };
 
-  state = {
-    date: undefined
-  };
-
   render() {
+    const {
+      irrigationDate,
+      setIrrigationDate,
+      addField
+    } = this.props.app.fieldsStore;
     return (
       <Container>
         <Grid>
@@ -30,9 +31,9 @@ class CreateField2 extends React.Component {
 
               <DatePicker
                 style={{ width: "100%" }}
-                date={this.state.date}
+                date={irrigationDate}
                 mode="date"
-                placeholder="Enter Location"
+                placeholder="Select Date"
                 format="MMMM Do, YYYY"
                 showIcon={false}
                 // minDate="2016-05-01"
@@ -57,9 +58,7 @@ class CreateField2 extends React.Component {
                   }
                   // ... You can check the source to find the other keys.
                 }}
-                onDateChange={date => {
-                  this.setState({ date: date });
-                }}
+                onDateChange={date => setIrrigationDate(date)}
               />
             </Col>
           </Row>
@@ -70,7 +69,10 @@ class CreateField2 extends React.Component {
             <Button
               full
               success
-              onPress={() => this.props.navigation.navigate("Main")}
+              onPress={() => {
+                addField();
+                this.props.navigation.navigate("Main");
+              }}
             >
               <Text>Create Field</Text>
             </Button>

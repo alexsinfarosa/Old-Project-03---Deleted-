@@ -1,5 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
+import Fields from "../components/Fields";
+import { Container } from "native-base";
 
 export default class FieldsScreen extends React.Component {
   static navigationOptions = {
@@ -7,9 +9,9 @@ export default class FieldsScreen extends React.Component {
   };
   render() {
     return (
-      <View style={styles.fields}>
-        <Text style={styles.text}>Fields</Text>
-      </View>
+      <Container style={styles.fields}>
+        <Fields />
+      </Container>
     );
   }
 }

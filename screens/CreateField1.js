@@ -20,7 +20,7 @@ class CreateField1 extends React.Component {
   };
 
   render() {
-    const { latLon, setLatLon } = this.props.app.paramsStore;
+    const { latLon, setLatLon } = this.props.app.fieldsStore;
 
     return (
       <Container>
@@ -43,9 +43,7 @@ class CreateField1 extends React.Component {
                 returnKeyType={"search"}
                 fetchDetails={true}
                 onPress={(data, details = null) => {
-                  // 'details' is provided when fetchDetails = true
                   setLatLon(details.geometry.location);
-                  console.log(details.geometry.location);
                 }}
                 query={{
                   // available options: https://developers.google.com/places/web-service/autocomplete
@@ -88,7 +86,7 @@ class CreateField1 extends React.Component {
               disabled={latLon ? false : true}
               onPress={() => this.props.navigation.navigate("Step2")}
             >
-              <Text>Create Field</Text>
+              <Text>Select Date</Text>
             </Button>
           </Content>
         </Footer>
