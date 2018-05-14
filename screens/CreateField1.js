@@ -4,9 +4,9 @@ import {
   Content,
   Footer,
   Button,
-  Text,
   H1,
-  View
+  View,
+  Text
 } from "native-base";
 import { inject, observer } from "mobx-react";
 
@@ -19,35 +19,21 @@ class CreateField1 extends React.Component {
     headerBackTitle: null
   };
 
-  state = {
-    initialPosition: "unknown",
-    lastPosition: "unknown",
-    watchID: null
-  };
-
-  // componentDidMount() {
-  //   navigator.geolocation.getCurrentPosition(position => {
-  //     const lat = parseFloat(position.coords.latitude);
-  //     const lon = parseFloat(position.coords.longitude);
-  //     console.log(lat, lon);
-  //   });
-  // }
-
   render() {
     const { latLon, setLatLon } = this.props.app.paramsStore;
-    console.log(latLon);
+
     return (
       <Container>
         <Grid>
           <Row
             style={{
-              justifyContent: "center",
-              alignItems: "center",
-              backgroundColor: "#fff"
+              backgroundColor: "#fff",
+              paddingLeft: 15,
+              paddingRight: 15
             }}
           >
-            <Col style={{ height: 300 }}>
-              <H1>Where is your field?</H1>
+            <Col style={{ height: 330, marginTop: 15 }}>
+              <H1 style={{ marginBottom: 30 }}>Where is your field?</H1>
 
               <GooglePlacesAutocomplete
                 placeholder="Enter Location"
@@ -60,11 +46,6 @@ class CreateField1 extends React.Component {
                   // 'details' is provided when fetchDetails = true
                   setLatLon(details.geometry.location);
                   console.log(details.geometry.location);
-                }}
-                textInputProps={{
-                  ref: textInput => {
-                    console.log(textInput);
-                  }
                 }}
                 query={{
                   // available options: https://developers.google.com/places/web-service/autocomplete
@@ -95,12 +76,6 @@ class CreateField1 extends React.Component {
                 currentLocationLabel="Current location"
                 nearbyPlacesAPI="GoogleReverseGeocoding"
               />
-              {latLon && (
-                <View>
-                  <Text>{latLon.lat}</Text>
-                  <Text>{latLon.lng}</Text>
-                </View>
-              )}
             </Col>
           </Row>
         </Grid>

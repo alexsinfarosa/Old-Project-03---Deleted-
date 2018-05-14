@@ -1,27 +1,68 @@
 import React from "react";
 import { Container, Content, Footer, Button, Text, H1 } from "native-base";
 import { inject, observer } from "mobx-react";
-
-import { Col, Grid } from "react-native-easy-grid";
+import DatePicker from "react-native-datepicker";
+import { Row, Col, Grid } from "react-native-easy-grid";
 
 class CreateField2 extends React.Component {
   static navigationOptions = {
     title: "Create Field - step 2",
     headerBackTitle: null
   };
+
+  state = {
+    date: undefined
+  };
+
   render() {
     return (
       <Container>
         <Grid>
-          <Col
+          <Row
             style={{
-              justifyContent: "center",
-              alignItems: "center",
-              backgroundColor: "#fff"
+              backgroundColor: "#fff",
+              paddingLeft: 15,
+              paddingRight: 15
             }}
           >
-            <H1>Date of last irrigation</H1>
-          </Col>
+            <Col style={{ height: 330, marginTop: 15 }}>
+              <H1 style={{ marginBottom: 30 }}>Date of last irrigation</H1>
+
+              <DatePicker
+                style={{ width: "100%" }}
+                date={this.state.date}
+                mode="date"
+                placeholder="Enter Location"
+                format="MMMM Do, YYYY"
+                showIcon={false}
+                // minDate="2016-05-01"
+                maxDate={new Date()}
+                confirmBtnText="Confirm"
+                cancelBtnText="Cancel"
+                customStyles={{
+                  dateText: {
+                    fontSize: 16,
+                    color: "#646464"
+                  },
+                  placeholderText: {
+                    fontSize: 16,
+                    color: "#B0B0B0"
+                  },
+                  dateInput: {
+                    // marginLeft: 36
+                    borderWidth: 0,
+                    borderBottomWidth: 1,
+                    borderColor: "#171717",
+                    alignItems: "flex-start"
+                  }
+                  // ... You can check the source to find the other keys.
+                }}
+                onDateChange={date => {
+                  this.setState({ date: date });
+                }}
+              />
+            </Col>
+          </Row>
         </Grid>
 
         <Footer>
