@@ -9,40 +9,45 @@ import Swipeout from "react-native-swipeout";
 
 const styles = StyleSheet.create({
   field: {
-    borderWidth: 1,
-    borderColor: "#CCCCCC",
-    borderRadius: 10,
-    marginTop: 40,
-    width: 200,
-    height: 100
+    height: 120,
+    borderBottomWidth: 1,
+    backgroundColor: "#fff",
+    borderBottomColor: "#F0F0F0",
+    padding: 15
   }
 });
 
-// Buttons
-const swipeoutBtns = [
-  {
-    text: "Delete",
-    backgroundColor: "tomato",
-    color: "#fff"
-  }
-];
-
 class Fields extends Component {
+  state = {
+    rowID: null
+  };
+
   render() {
-    const { fields } = this.props.app.fieldsStore;
+    const { fields, removeField } = this.props.app.fieldsStore;
     console.log(fields.slice());
 
-    const fieldList = fields.map(field => (
-      <Swipeout right={swipeoutBtns} key={field.id} autoClose={true}>
-        <View
-          style={{
-            height: 120,
-            borderBottomWidth: 1,
-            backgroundColor: "#fff",
-            borderBottomColor: "#F0F0F0",
-            padding: 15
-          }}
-        >
+    // Buttons
+    const swipeoutBtns = [
+      {
+        text: "Delete",
+        type: "delete",
+        backgroundColor: "tomato",
+        color: "#fff",
+        onPress: () => removeField(this.state.rowID)
+      }
+    ];
+
+    const fieldList = fields.map((field, index) => (
+      <Swipeout
+        right={swipeoutBtns}
+        key={field.id}
+        autoClose={true}
+        rowID={index}
+        onOpen={(sectionID, rowID) => {
+          this.setState({ rowID });
+        }}
+      >
+        <View style={styles.field}>
           <Text>{field.id}</Text>
         </View>
       </Swipeout>

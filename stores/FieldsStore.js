@@ -55,10 +55,16 @@ export default class FieldsStore {
     const id = Date.now().toString();
     const field = { ...this.asJson, id };
     this.fields.push(field);
+    this.writeToLocalstorage();
+  };
+
+  removeField = idx => {
+    this.fields.splice(idx, 1);
+    this.writeToLocalstorage();
   };
 
   //   localstorage
-  writeToLocalstorage = async json => {
+  writeToLocalstorage = async () => {
     const fields = this.fields.slice();
     try {
       await AsyncStorage.setItem(`irriTool-model`, JSON.stringify(fields));
@@ -90,6 +96,7 @@ decorate(FieldsStore, {
   isSelected: observable,
   isLoading: observable,
   setField: action,
+  removeField: action,
   fields: observable,
   setIrrigationDate: action,
   setLatLon: action

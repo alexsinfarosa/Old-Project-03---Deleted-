@@ -22,8 +22,6 @@ const styles = StyleSheet.create({
   fields: {
     flex: 1,
     justifyContent: "center",
-    // alignItems: "center",
-    // backgroundColor: "#9DD6EB"
     backgroundColor: "#FFF"
   },
   text: {

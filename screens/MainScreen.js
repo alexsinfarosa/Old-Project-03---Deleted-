@@ -44,7 +44,7 @@ class MainScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  wrapper: {},
+  wrapper: { backgroundColor: "pink" },
   main: {
     flex: 1,
     justifyContent: "center",
