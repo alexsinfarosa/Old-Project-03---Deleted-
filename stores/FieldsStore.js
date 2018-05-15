@@ -71,6 +71,7 @@ export default class FieldsStore {
     try {
       const retreivedField = await AsyncStorage.getItem("irriTool-model");
       const fields = JSON.parse(retreivedField);
+      console.log(fields);
       if (fields !== null) {
         this.fields = fields;
       }

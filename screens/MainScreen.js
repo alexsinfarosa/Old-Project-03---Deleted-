@@ -24,20 +24,20 @@ class MainScreen extends React.Component {
         style={styles.wrapper}
         showsButtons={false}
         loop={false}
-        index={0}
+        index={2}
         onIndexChanged={i => {
-          if (i === 0) this.props.navigation.setParams({ title: "Fields" });
+          if (i === 0) this.props.navigation.setParams({ title: "Forecast" });
           if (i === 1) this.props.navigation.setParams({ title: "Main" });
-          if (i === 2) this.props.navigation.setParams({ title: "Forecast" });
+          if (i === 2) this.props.navigation.setParams({ title: "Fields" });
         }}
       >
-        <FieldsScreen />
+        <ForecastScreen />
 
         <View style={styles.main}>
           <Text style={styles.text}>Main</Text>
         </View>
 
-        <ForecastScreen />
+        <FieldsScreen navigation={this.props.navigation} />
       </Swiper>
     );
   }

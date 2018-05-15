@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
 
-import { StyleSheet } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 import { Container, Content, View, Text } from "native-base";
 import { Row, Col, Grid } from "react-native-easy-grid";
+
+import Swipeout from "react-native-swipeout";
 
 const styles = StyleSheet.create({
   field: {
@@ -16,38 +18,37 @@ const styles = StyleSheet.create({
   }
 });
 
+// Buttons
+const swipeoutBtns = [
+  {
+    text: "Delete",
+    backgroundColor: "tomato",
+    color: "#fff"
+  }
+];
+
 class Fields extends Component {
   render() {
     const { fields } = this.props.app.fieldsStore;
     console.log(fields.slice());
 
     const fieldList = fields.map(field => (
-      <Row key={field.id} style={styles.field}>
-        <View style={{ padding: 15 }}>
-          <Text>{field.irrigationDate}</Text>
+      <Swipeout right={swipeoutBtns} key={field.id} autoClose={true}>
+        <View
+          style={{
+            height: 120,
+            borderBottomWidth: 1,
+            backgroundColor: "#fff",
+            borderBottomColor: "#F0F0F0",
+            padding: 15
+          }}
+        >
           <Text>{field.id}</Text>
-          <Text>{field.latLon}</Text>
         </View>
-      </Row>
+      </Swipeout>
     ));
 
-    return (
-      <Grid>
-        {fieldList}
-        <Row style={styles.field}>
-          <View
-            style={{
-              padding: 15,
-              flex: 1,
-              justifyContent: "center",
-              alignItems: "center"
-            }}
-          >
-            <Text style={{ fontSize: 30 }}>+</Text>
-          </View>
-        </Row>
-      </Grid>
-    );
+    return <Content>{fieldList}</Content>;
   }
 }
 

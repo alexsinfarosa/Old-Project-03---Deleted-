@@ -11,7 +11,7 @@ export default class FieldsScreen extends React.Component {
     return (
       <Container style={styles.fields}>
         <ScrollView>
-          <Fields />
+          <Fields navigation={this.props.navigation} />
         </ScrollView>
       </Container>
     );
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   fields: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
+    // alignItems: "center",
     // backgroundColor: "#9DD6EB"
     backgroundColor: "#FFF"
   },
