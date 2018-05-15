@@ -24,7 +24,7 @@ class MainScreen extends React.Component {
         style={styles.wrapper}
         showsButtons={false}
         loop={false}
-        index={1}
+        index={0}
         onIndexChanged={i => {
           if (i === 0) this.props.navigation.setParams({ title: "Fields" });
           if (i === 1) this.props.navigation.setParams({ title: "Main" });

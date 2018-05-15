@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { ScrollView, StyleSheet, Text, View, Button } from "react-native";
 import Fields from "../components/Fields";
 import { Container } from "native-base";
 
@@ -10,7 +10,9 @@ export default class FieldsScreen extends React.Component {
   render() {
     return (
       <Container style={styles.fields}>
-        <Fields />
+        <ScrollView>
+          <Fields />
+        </ScrollView>
       </Container>
     );
   }
@@ -21,7 +23,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#9DD6EB"
+    // backgroundColor: "#9DD6EB"
+    backgroundColor: "#FFF"
   },
   text: {
     color: "#fff",

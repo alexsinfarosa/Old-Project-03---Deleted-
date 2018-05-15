@@ -1,4 +1,12 @@
-import { decorate, observable, action, computed, reaction, when } from "mobx";
+import {
+  decorate,
+  observable,
+  action,
+  computed,
+  reaction,
+  when,
+  toJS
+} from "mobx";
 import ParamsStore from "./ParamsStore";
 import { AsyncStorage } from "react-native";
 
@@ -20,56 +28,20 @@ export default class FieldsStore {
     );
   }
 
-  isLoading = false;
+  id;
   latLon;
-  setLatLon = d => (this.latLon = d);
   irrigationDate;
-  setIrrigationDate = d => (this.irrigationDate = d);
   soilWaterCapacity = "Medium";
   crop = "Grass";
   isSelected = false;
+  isLoading = false;
 
-  fields = new Map();
-  addField = () => {
-    const id = Date.now().toString();
-    const field = {
-      latLon: this.latLon,
-      irrigationDate: this.irrigationDate,
-      soilWaterCapacity: this.soilWaterCapacity,
-      crop: this.crop,
-      isSelected: this.isSelected
-    };
-    console.log(id, field);
-    this.fields.set(id, field);
-  };
-
-  //   localstorage
-  writeToLocalstorage = async json => {
-    try {
-      await AsyncStorage.setItem("irriTool-model", JSON.stringify(json));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  readFromLocalstorage = async () => {
-    try {
-      const value = AsyncStorage.getItem("irriTool-model");
-      console.log(value);
-      if (value !== null) {
-        this.latLon = params.latLon;
-        this.irrigationDate = params.irrigationDate;
-        this.soilWaterCapacity = params.soilWaterCapacity;
-        this.crop = params.crop;
-        this.isSelected = params.isSelected;
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  setIrrigationDate = d => (this.irrigationDate = d);
+  setLatLon = d => (this.latLon = d);
 
   get asJson() {
     return {
+      id: this.id,
       latLon: this.latLon,
       irrigationDate: this.irrigationDate,
       soilWaterCapacity: this.soilWaterCapacity,
@@ -77,17 +49,47 @@ export default class FieldsStore {
       isSelected: this.isSelected
     };
   }
+
+  fields = [];
+  addField = () => {
+    const id = Date.now().toString();
+    const field = { ...this.asJson, id };
+    this.fields.push(field);
+  };
+
+  //   localstorage
+  writeToLocalstorage = async json => {
+    const fields = this.fields.slice();
+    try {
+      await AsyncStorage.setItem(`irriTool-model`, JSON.stringify(fields));
+    } catch (error) {
+      console.log(`There was an error writing to asynStorage: ${error}`);
+    }
+  };
+
+  readFromLocalstorage = async () => {
+    try {
+      const retreivedField = await AsyncStorage.getItem("irriTool-model");
+      const fields = JSON.parse(retreivedField);
+      if (fields !== null) {
+        this.fields = fields;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 
 decorate(FieldsStore, {
-  isLoading: observable,
+  id: observable,
   latLon: observable,
-  setLatLon: action,
   irrigationDate: observable,
-  setIrrigationDate: action,
   soilWaterCapacity: observable,
   crop: observable,
   isSelected: observable,
+  isLoading: observable,
+  setField: action,
   fields: observable,
-  addField: action
+  setIrrigationDate: action,
+  setLatLon: action
 });

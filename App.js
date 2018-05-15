@@ -39,7 +39,7 @@ const RootStack = createStackNavigator(
     }
   },
   {
-    initialRouteName: "Step2",
+    initialRouteName: "Main",
     navigationOptions: {
       headerStyle: {
         backgroundColor: "#fff",
