@@ -9,7 +9,7 @@ import Swipeout from "react-native-swipeout";
 
 const styles = StyleSheet.create({
   field: {
-    height: 120,
+    height: 170,
     borderBottomWidth: 1,
     backgroundColor: "#fff",
     borderBottomColor: "#F0F0F0",
@@ -23,8 +23,12 @@ class Fields extends Component {
   };
 
   render() {
-    const { fields, removeField } = this.props.app.fieldsStore;
-    console.log(fields.slice());
+    const {
+      fields,
+      removeField,
+      selectField,
+      setMainScreenIdx
+    } = this.props.app.fieldsStore;
 
     // Buttons
     const swipeoutBtns = [
@@ -37,18 +41,25 @@ class Fields extends Component {
       }
     ];
 
-    const fieldList = fields.map((field, index) => (
+    const fieldList = fields.sort((a, b) => a.id < b.id).map((field, index) => (
       <Swipeout
         right={swipeoutBtns}
         key={field.id}
         autoClose={true}
         rowID={index}
         onOpen={(sectionID, rowID) => {
+          selectField(field.id);
           this.setState({ rowID });
         }}
       >
         <View style={styles.field}>
-          <Text>{field.id}</Text>
+          <Text>Location: {field.name}</Text>
+          <Text>Lat: {field.latLon.lat}</Text>
+          <Text>Lon: {field.latLon.lng}</Text>
+          <Text>Id: {field.id}</Text>
+          <Text>Crop: {field.crop}</Text>
+          <Text>Date: {field.irrigationDate}</Text>
+          <Text>SWC: {field.soilWaterCapacity}</Text>
         </View>
       </Swipeout>
     ));

@@ -19,6 +19,8 @@ class MainScreen extends React.Component {
   });
 
   render() {
+    const { fields, selectedField, mainScreenIdx } = this.props.app.fieldsStore;
+
     return (
       <Swiper
         style={styles.wrapper}
@@ -26,25 +28,29 @@ class MainScreen extends React.Component {
         loop={false}
         index={1}
         onIndexChanged={i => {
-          if (i === 0) this.props.navigation.setParams({ title: "Forecast" });
+          console.log(i);
+          if (i === 0) this.props.navigation.setParams({ title: "Fields" });
           if (i === 1) this.props.navigation.setParams({ title: "Main" });
-          if (i === 2) this.props.navigation.setParams({ title: "Fields" });
+          if (i === 2) this.props.navigation.setParams({ title: "Forecast" });
         }}
       >
-        <ForecastScreen />
-
-        <View style={styles.main}>
-          <Text style={styles.text}>Main</Text>
-        </View>
-
         <FieldsScreen navigation={this.props.navigation} />
+
+        {selectedField && (
+          <View style={styles.main}>
+            <Text style={styles.text}>{selectedField.name}</Text>
+            <Text style={styles.text}>{selectedField.irrigationDate}</Text>
+          </View>
+        )}
+
+        <ForecastScreen />
       </Swiper>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  wrapper: { backgroundColor: "pink" },
+  wrapper: {},
   main: {
     flex: 1,
     justifyContent: "center",
@@ -53,7 +59,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "#fff",
-    fontSize: 30,
+    fontSize: 20,
     fontWeight: "bold"
   }
 });

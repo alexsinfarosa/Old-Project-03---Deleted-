@@ -20,7 +20,7 @@ class CreateField1 extends React.Component {
   };
 
   render() {
-    const { latLon, setLatLon } = this.props.app.fieldsStore;
+    const { latLon, setLatLon, setName } = this.props.app.fieldsStore;
 
     return (
       <Container>
@@ -44,6 +44,7 @@ class CreateField1 extends React.Component {
                 fetchDetails={true}
                 onPress={(data, details = null) => {
                   setLatLon(details.geometry.location);
+                  setName(data.description);
                 }}
                 query={{
                   // available options: https://developers.google.com/places/web-service/autocomplete
