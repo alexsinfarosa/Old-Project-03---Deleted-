@@ -3,61 +3,49 @@ import { createStackNavigator } from "react-navigation";
 import { Provider } from "mobx-react";
 import RootStore from "./stores/RootStore";
 
-import {
-  Container,
-  Header,
-  Content,
-  Body,
-  Title,
-  Subtitle,
-  Footer,
-  Button,
-  Text,
-  H1
-} from "native-base";
-
-import { Col, Row, Grid } from "react-native-easy-grid";
+import Swiper from "react-native-swiper";
 
 // Screens components
-import CreateField1 from "./screens/CreateField1";
-import CreateField2 from "./screens/CreateField2";
-import MainScreen from "./screens/MainScreen";
+import ForecastScreen from "./screens/ForecastScreen";
+import FieldsScreen from "./screens/FieldsScreen";
+import Main from "./screens/Main";
+
+import { View } from "react-native";
 
 //  mobx
 const app = new RootStore();
 
-const RootStack = createStackNavigator(
-  {
-    Step1: {
-      screen: CreateField1
-    },
-    Step2: {
-      screen: CreateField2
-    },
-    Main: {
-      screen: MainScreen
-    }
-  },
-  {
-    initialRouteName: "Main",
-    navigationOptions: {
-      headerStyle: {
-        backgroundColor: "#fff",
-        borderBottomColor: "#fff"
-      }
-      // headerTintColor: "red",
-      // headerTitleStyle: {
-      //   fontWeight: "bold"
-      // }
-    }
-  }
-);
-
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef();
+  }
+  state = {
+    idx: 1
+  };
+
+  scrollForward = () => this.myRef.current.scrollBy(1);
+  scrollBack = () => this.myRef.current.scrollBy(-1);
+
   render() {
     return (
       <Provider app={app}>
-        <RootStack />
+        <Swiper
+          showsButtons={false}
+          loop={false}
+          index={1}
+          ref={this.myRef}
+          onIndexChanged={idx => this.setState({ idx })}
+          activeDotColor="#355691"
+        >
+          <ForecastScreen idx={this.state.idx} />
+          <Main
+            idx={this.state.idx}
+            scrollBack={this.scrollBack}
+            scrollForward={this.scrollForward}
+          />
+          <FieldsScreen idx={this.state.idx} />
+        </Swiper>
       </Provider>
     );
   }

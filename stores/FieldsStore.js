@@ -15,21 +15,14 @@ export default class FieldsStore {
     when(
       () => !this.isLoading,
       () => {
-        console.log("when called...");
         this.readFromLocalstorage();
-        reaction(
-          () => this.asJson,
-          json => {
-            this.writeToLocalstorage(json);
-            console.log("write to local storage");
-          }
-        );
+        reaction(() => this.asJson, json => this.writeToLocalstorage(json));
       }
     );
   }
 
-  mainScreenIdx = 2;
-  setMainScreenIdx = d => (this.mainScreenIdx = d);
+  defaultRoute = "Step1";
+  setDefaultRoute = d => (this.defaultRoute = d);
 
   id;
   name;
@@ -75,10 +68,14 @@ export default class FieldsStore {
   };
 
   get selectedField() {
-    return this.fields.filter(field => field.isSelected)[0];
+    if (this.fields.length !== 0) {
+      const field = this.fields.filter(field => field.isSelected)[0];
+      return !field ? this.fields[0] : field;
+    }
   }
 
-  removeField = idx => {
+  removeField = id => {
+    const idx = this.fields.findIndex(field => field.id === id);
     this.fields.splice(idx, 1);
     this.writeToLocalstorage();
   };
@@ -97,8 +94,8 @@ export default class FieldsStore {
     try {
       const retreivedField = await AsyncStorage.getItem("irriTool-model");
       const fields = JSON.parse(retreivedField);
-
-      if (fields !== null) {
+      console.log(fields);
+      if (fields.length !== 0) {
         fields[fields.length - 1].isSelected = true;
         this.fields = fields;
       }
@@ -109,8 +106,8 @@ export default class FieldsStore {
 }
 
 decorate(FieldsStore, {
-  mainScreenIdx: observable,
-  setMainScreenIdx: action,
+  defaultRoute: observable,
+  setDefaultRoute: action,
   id: observable,
   name: observable,
   latLon: observable,

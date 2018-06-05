@@ -1,32 +1,67 @@
 import React from "react";
-import { ScrollView, StyleSheet, Text, View, Button } from "react-native";
-import Fields from "../components/Fields";
-import { Container } from "native-base";
+import { inject, observer } from "mobx-react";
+import { StyleSheet, View, Text } from "react-native";
+import { Icon } from "native-base";
 
-export default class FieldsScreen extends React.Component {
-  static navigationOptions = {
-    title: "Fields"
-  };
+class FieldsScreen extends React.Component {
   render() {
     return (
-      <Container style={styles.fields}>
-        <ScrollView>
-          <Fields navigation={this.props.navigation} />
-        </ScrollView>
-      </Container>
+      <View style={styles.container}>
+        <View style={styles.colFlexEnd}>
+          <View style={styles.colToRow}>
+            <View style={{ flex: 1, alignItems: "center" }}>
+              <Text />
+            </View>
+            <View style={{ flex: 2, alignItems: "center" }}>
+              <Text>Fields</Text>
+              <Icon
+                name="water"
+                // active={this.props.idx === 2 ? true : false}
+                style={{ color: "#355691" }}
+              />
+            </View>
+            <View style={{ flex: 1, alignItems: "center" }}>
+              <Text />
+            </View>
+          </View>
+        </View>
+        <View
+          style={{
+            flex: 8,
+            justifyContent: "center",
+            alignItems: "center"
+          }}
+        >
+          <View>
+            <Text>All Fields</Text>
+          </View>
+        </View>
+        {/**<View style={{ flex: 1 }}>
+          <View style={styles.colCentered}>
+            <Text>Footer</Text>
+          </View>
+        </View>**/}
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  fields: {
+  container: { flex: 1 },
+  colFlexEnd: {
     flex: 1,
-    justifyContent: "center",
-    backgroundColor: "#FFF"
+    justifyContent: "flex-end",
+    alignItems: "center"
   },
-  text: {
-    color: "#fff",
-    fontSize: 30,
-    fontWeight: "bold"
+  colToRow: {
+    flexDirection: "row"
+  },
+  colCentered: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
   }
 });
+
+export default inject("app")(observer(FieldsScreen));

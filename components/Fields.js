@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
 
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet, TouchableOpacity, TouchableHighlight } from "react-native";
 import { Container, Content, View, Text } from "native-base";
 import { Row, Col, Grid } from "react-native-easy-grid";
 
@@ -9,7 +9,7 @@ import Swipeout from "react-native-swipeout";
 
 const styles = StyleSheet.create({
   field: {
-    height: 170,
+    height: 100,
     borderBottomWidth: 1,
     backgroundColor: "#fff",
     borderBottomColor: "#F0F0F0",
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
 
 class Fields extends Component {
   state = {
-    rowID: null
+    fieldID: null
   };
 
   render() {
@@ -37,7 +37,7 @@ class Fields extends Component {
         type: "delete",
         backgroundColor: "tomato",
         color: "#fff",
-        onPress: () => removeField(this.state.rowID)
+        onPress: () => removeField(this.state.fieldID)
       }
     ];
 
@@ -47,20 +47,19 @@ class Fields extends Component {
         key={field.id}
         autoClose={true}
         rowID={index}
-        onOpen={(sectionID, rowID) => {
+        onOpen={() => {
           selectField(field.id);
-          this.setState({ rowID });
+          this.setState({ fieldID: field.id });
         }}
       >
-        <View style={styles.field}>
-          <Text>Location: {field.name}</Text>
-          <Text>Lat: {field.latLon.lat}</Text>
-          <Text>Lon: {field.latLon.lng}</Text>
-          <Text>Id: {field.id}</Text>
-          <Text>Crop: {field.crop}</Text>
-          <Text>Date: {field.irrigationDate}</Text>
-          <Text>SWC: {field.soilWaterCapacity}</Text>
-        </View>
+        <TouchableOpacity onPress={this.props.scrollBack}>
+          <View style={styles.field}>
+            <Text style={{ fontSize: 20 }}>{field.name}</Text>
+            <Text style={{ color: "teal", fontSize: 16 }}>
+              {field.irrigationDate}
+            </Text>
+          </View>
+        </TouchableOpacity>
       </Swipeout>
     ));
 

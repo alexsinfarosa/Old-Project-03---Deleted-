@@ -1,29 +1,67 @@
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { inject, observer } from "mobx-react";
+import { StyleSheet, View, Text } from "react-native";
+import { Icon } from "native-base";
 
-export default class ForecastScreen extends React.Component {
-  static navigationOptions = {
-    title: "Forecast"
-  };
+class ForecastScreen extends React.Component {
   render() {
     return (
-      <View style={styles.forecast}>
-        <Text style={styles.text}>Forecast</Text>
+      <View style={styles.container}>
+        <View style={styles.colFlexEnd}>
+          <View style={styles.colToRow}>
+            <View style={{ flex: 1, alignItems: "center" }}>
+              <Text />
+            </View>
+            <View style={{ flex: 2, alignItems: "center" }}>
+              <Text>Forecast</Text>
+              <Icon
+                name="cloudy"
+                // active={this.props.idx === 0 ? true : false}
+                style={{ color: "#355691" }}
+              />
+            </View>
+            <View style={{ flex: 1, alignItems: "center" }}>
+              <Text />
+            </View>
+          </View>
+        </View>
+        <View
+          style={{
+            flex: 8,
+            justifyContent: "center",
+            alignItems: "center"
+          }}
+        >
+          <View>
+            <Text>Forecast</Text>
+          </View>
+        </View>
+        {/**<View style={{ flex: 1 }}>
+          <View style={styles.colCentered}>
+            <Text>Footer</Text>
+          </View>
+        </View>**/}
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  forecast: {
+  container: { flex: 1 },
+  colFlexEnd: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#92BBD9"
+    justifyContent: "flex-end",
+    alignItems: "center"
   },
-  text: {
-    color: "#fff",
-    fontSize: 30,
-    fontWeight: "bold"
+  colToRow: {
+    flexDirection: "row"
+  },
+  colCentered: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
   }
 });
+
+export default inject("app")(observer(ForecastScreen));
