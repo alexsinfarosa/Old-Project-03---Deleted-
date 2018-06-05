@@ -16,7 +16,7 @@ class Main extends React.Component {
               <Text
                 style={{
                   color: this.props.idx === 1 ? "#355691" : null,
-                  fontSize: 16
+                  fontSize: 20
                 }}
               >
                 Main
@@ -51,7 +51,7 @@ class Main extends React.Component {
 const styles = StyleSheet.create({
   container: { flex: 1 },
   colFlexEnd: {
-    flex: 1,
+    flex: 1.1,
     justifyContent: "flex-end",
     alignItems: "center"
   },

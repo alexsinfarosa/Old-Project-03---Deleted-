@@ -13,7 +13,7 @@ class FieldsScreen extends React.Component {
               <Text />
             </View>
             <View style={{ flex: 2, alignItems: "center" }}>
-              <Text>Fields</Text>
+              <Text style={{ fontSize: 20 }}>Fields</Text>
               <Icon
                 name="water"
                 // active={this.props.idx === 2 ? true : false}
@@ -49,7 +49,7 @@ class FieldsScreen extends React.Component {
 const styles = StyleSheet.create({
   container: { flex: 1 },
   colFlexEnd: {
-    flex: 1,
+    flex: 1.1,
     justifyContent: "flex-end",
     alignItems: "center"
   },
