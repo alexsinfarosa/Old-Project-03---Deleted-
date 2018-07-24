@@ -51,7 +51,8 @@ const styles = StyleSheet.create({
   colFlexEnd: {
     flex: 1.1,
     justifyContent: "flex-end",
-    alignItems: "center"
+    alignItems: "center",
+    marginTop: 8
   },
   colToRow: {
     flexDirection: "row"

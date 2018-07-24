@@ -10,7 +10,9 @@ import ForecastScreen from "./screens/ForecastScreen";
 import FieldsScreen from "./screens/FieldsScreen";
 import Main from "./screens/Main";
 
-import { View } from "react-native";
+import { View, Text } from "react-native";
+import CreateField1 from "./screens/CreateField1";
+import CreateField2 from "./screens/CreateField2";
 
 //  mobx
 const app = new RootStore();
@@ -30,22 +32,28 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider app={app}>
-        <Swiper
-          showsButtons={false}
-          loop={false}
-          index={1}
-          ref={this.myRef}
-          onIndexChanged={idx => this.setState({ idx })}
-          activeDotColor="#355691"
-        >
-          <ForecastScreen idx={this.state.idx} />
-          <Main
-            idx={this.state.idx}
-            scrollBack={this.scrollBack}
-            scrollForward={this.scrollForward}
-          />
-          <FieldsScreen idx={this.state.idx} />
-        </Swiper>
+        {false ? (
+          <Swiper
+            showsButtons={false}
+            loop={false}
+            index={1}
+            ref={this.myRef}
+            onIndexChanged={idx => this.setState({ idx })}
+            activeDotColor="#355691"
+          >
+            <ForecastScreen idx={this.state.idx} />
+            <Main
+              idx={this.state.idx}
+              scrollBack={this.scrollBack}
+              scrollForward={this.scrollForward}
+            />
+            <FieldsScreen idx={this.state.idx} />
+          </Swiper>
+        ) : (
+          <View>
+            <CreateField1 />
+          </View>
+        )}
       </Provider>
     );
   }
