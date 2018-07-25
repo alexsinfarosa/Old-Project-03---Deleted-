@@ -27,7 +27,6 @@ class CreateField1 extends React.Component {
         <Grid>
           <Row
             style={{
-              backgroundColor: "pink",
               paddingLeft: 15,
               paddingRight: 15
             }}

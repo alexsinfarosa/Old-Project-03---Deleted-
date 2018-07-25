@@ -17,6 +17,30 @@ import CreateField2 from "./screens/CreateField2";
 //  mobx
 const app = new RootStore();
 
+const RootStack = createStackNavigator(
+  {
+    Step1: {
+      screen: CreateField1
+    },
+    Step2: {
+      screen: CreateField2
+    }
+  },
+  {
+    initialRouteName: "Step1",
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: "#fff",
+        borderBottomColor: "#fff"
+      }
+      // headerTintColor: "red",
+      // headerTitleStyle: {
+      //   fontWeight: "bold"
+      // }
+    }
+  }
+);
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -30,9 +54,10 @@ export default class App extends React.Component {
   scrollBack = () => this.myRef.current.scrollBy(-1);
 
   render() {
+    console.log(app.fieldsStore.isSwiper);
     return (
       <Provider app={app}>
-        {false ? (
+        {app.fieldsStore.isSwiper ? (
           <Swiper
             showsButtons={false}
             loop={false}
@@ -50,9 +75,7 @@ export default class App extends React.Component {
             <FieldsScreen idx={this.state.idx} />
           </Swiper>
         ) : (
-          <View>
-            <CreateField1 />
-          </View>
+          <RootStack />
         )}
       </Provider>
     );

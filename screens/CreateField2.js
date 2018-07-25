@@ -14,7 +14,8 @@ class CreateField2 extends React.Component {
     const {
       irrigationDate,
       setIrrigationDate,
-      addField
+      addField,
+      setIsSwiper
     } = this.props.app.fieldsStore;
     return (
       <Container>
@@ -71,7 +72,7 @@ class CreateField2 extends React.Component {
               success
               onPress={() => {
                 addField();
-                this.props.navigation.navigate("Main");
+                setIsSwiper(true);
               }}
             >
               <Text>Create Field</Text>

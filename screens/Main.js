@@ -1,7 +1,7 @@
 import React from "react";
 import { inject, observer } from "mobx-react";
 import { StyleSheet, View, Text } from "react-native";
-import { Button, Icon } from "native-base";
+import { Icon } from "native-base";
 
 class Main extends React.Component {
   render() {
@@ -38,11 +38,6 @@ class Main extends React.Component {
             <Text>Main</Text>
           </View>
         </View>
-        {/**<View style={{ flex: 1 }}>
-          <View style={styles.colCentered}>
-            <Text>Footer</Text>
-          </View>
-        </View>**/}
       </View>
     );
   }

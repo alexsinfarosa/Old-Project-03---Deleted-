@@ -37,6 +37,9 @@ export default class FieldsStore {
   setLatLon = d => (this.latLon = d);
   setName = d => (this.name = d);
 
+  isSwiper = false;
+  setIsSwiper = d => (this.isSwiper = d);
+
   get asJson() {
     return {
       id: this.id,
@@ -123,5 +126,7 @@ decorate(FieldsStore, {
   selectedField: computed,
   selectField: action,
   setIrrigationDate: action,
-  setLatLon: action
+  setLatLon: action,
+  isSwiper: observable,
+  setIsSwiper: action
 });
