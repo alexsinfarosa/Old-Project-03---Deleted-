@@ -16,13 +16,16 @@ export default class FieldsStore {
       () => !this.isLoading,
       () => {
         this.readFromLocalstorage();
-        reaction(() => this.asJson, json => this.writeToLocalstorage(json));
+        // reaction(() => this.asJson, json => this.writeToLocalstorage(json));
       }
     );
+
+    reaction(() => this.asJson, () => console.log(this.fields));
   }
 
-  defaultRoute = "Step1";
-  setDefaultRoute = d => (this.defaultRoute = d);
+  get areFields() {
+    return this.fields.length > 0;
+  }
 
   id;
   name;
@@ -36,9 +39,6 @@ export default class FieldsStore {
   setIrrigationDate = d => (this.irrigationDate = d);
   setLatLon = d => (this.latLon = d);
   setName = d => (this.name = d);
-
-  isSwiper = false;
-  setIsSwiper = d => (this.isSwiper = d);
 
   get asJson() {
     return {
@@ -97,7 +97,7 @@ export default class FieldsStore {
     try {
       const retreivedField = await AsyncStorage.getItem("irriTool-model");
       const fields = JSON.parse(retreivedField);
-      console.log(fields);
+      // console.log(fields);
       if (fields.length !== 0) {
         fields[fields.length - 1].isSelected = true;
         this.fields = fields;
@@ -109,8 +109,7 @@ export default class FieldsStore {
 }
 
 decorate(FieldsStore, {
-  defaultRoute: observable,
-  setDefaultRoute: action,
+  areFields: computed,
   id: observable,
   name: observable,
   latLon: observable,
@@ -126,7 +125,5 @@ decorate(FieldsStore, {
   selectedField: computed,
   selectField: action,
   setIrrigationDate: action,
-  setLatLon: action,
-  isSwiper: observable,
-  setIsSwiper: action
+  setLatLon: action
 });

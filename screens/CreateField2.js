@@ -72,7 +72,7 @@ class CreateField2 extends React.Component {
               success
               onPress={() => {
                 addField();
-                setIsSwiper(true);
+                this.props.navigation.navigate("Step3");
               }}
             >
               <Text>Create Field</Text>

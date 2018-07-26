@@ -3,30 +3,29 @@ import { inject, observer } from "mobx-react";
 import { StyleSheet, View, Text } from "react-native";
 import { Icon } from "native-base";
 
-class Main extends React.Component {
+class FieldDate extends React.Component {
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.colFlexEnd}>
           <View style={styles.colToRow}>
             <View style={{ flex: 1, alignItems: "center" }}>
-              <Icon onPress={this.props.scrollBack} name="cloudy" />
+              <Text />
             </View>
             <View style={{ flex: 2, alignItems: "center" }}>
-              <Text
-                style={{
-                  color: this.props.idx === 1 ? "#355691" : null,
-                  fontSize: 20
-                }}
-              >
-                Main
-              </Text>
+              <Text style={{ fontSize: 20 }}>Forecast</Text>
+              <Icon
+                name="cloudy"
+                // active={this.props.idx === 0 ? true : false}
+                style={{ color: "#355691" }}
+              />
             </View>
             <View style={{ flex: 1, alignItems: "center" }}>
-              <Icon onPress={this.props.scrollForward} name="water" />
+              <Text />
             </View>
           </View>
         </View>
+
         <View
           style={{
             flex: 8,
@@ -35,9 +34,14 @@ class Main extends React.Component {
           }}
         >
           <View>
-            <Text>Main</Text>
+            <Text>Field Date</Text>
           </View>
         </View>
+        {/**<View style={{ flex: 1 }}>
+          <View style={styles.colCentered}>
+            <Text>Footer</Text>
+          </View>
+        </View>**/}
       </View>
     );
   }
@@ -48,7 +52,8 @@ const styles = StyleSheet.create({
   colFlexEnd: {
     flex: 1.1,
     justifyContent: "flex-end",
-    alignItems: "center"
+    alignItems: "center",
+    marginTop: 8
   },
   colToRow: {
     flexDirection: "row"
@@ -61,4 +66,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default inject("app")(observer(Main));
+export default inject("app")(observer(FieldDate));

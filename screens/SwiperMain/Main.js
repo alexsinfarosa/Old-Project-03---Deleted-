@@ -3,25 +3,31 @@ import { inject, observer } from "mobx-react";
 import { StyleSheet, View, Text } from "react-native";
 import { Icon } from "native-base";
 
-class FieldsScreen extends React.Component {
+class Main extends React.Component {
+  static navigationOptions = {
+    title: "Create Field - step 1",
+    headerBackTitle: null
+  };
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.colFlexEnd}>
           <View style={styles.colToRow}>
             <View style={{ flex: 1, alignItems: "center" }}>
-              <Text />
+              <Icon onPress={this.props.scrollBack} name="cloudy" />
             </View>
             <View style={{ flex: 2, alignItems: "center" }}>
-              <Text style={{ fontSize: 20 }}>Fields</Text>
-              <Icon
-                name="water"
-                // active={this.props.idx === 2 ? true : false}
-                style={{ color: "#355691" }}
-              />
+              <Text
+                style={{
+                  color: this.props.idx === 1 ? "#355691" : null,
+                  fontSize: 20
+                }}
+              >
+                Main
+              </Text>
             </View>
             <View style={{ flex: 1, alignItems: "center" }}>
-              <Text />
+              <Icon onPress={this.props.scrollForward} name="water" />
             </View>
           </View>
         </View>
@@ -33,14 +39,9 @@ class FieldsScreen extends React.Component {
           }}
         >
           <View>
-            <Text>All Fields</Text>
+            <Text>Main</Text>
           </View>
         </View>
-        {/**<View style={{ flex: 1 }}>
-          <View style={styles.colCentered}>
-            <Text>Footer</Text>
-          </View>
-        </View>**/}
       </View>
     );
   }
@@ -51,8 +52,7 @@ const styles = StyleSheet.create({
   colFlexEnd: {
     flex: 1.1,
     justifyContent: "flex-end",
-    alignItems: "center",
-    marginTop: 8
+    alignItems: "center"
   },
   colToRow: {
     flexDirection: "row"
@@ -65,4 +65,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default inject("app")(observer(FieldsScreen));
+export default inject("app")(observer(Main));
