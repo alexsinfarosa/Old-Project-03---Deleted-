@@ -26,7 +26,7 @@ class SwiperAddField extends React.Component {
         showsButtons={false}
         showsPagination={false}
         loop={false}
-        index={1}
+        index={2}
         ref={this.myRef}
         onIndexChanged={idx => this.setState({ idx })}
         activeDotColor="#355691"

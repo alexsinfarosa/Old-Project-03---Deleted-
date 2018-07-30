@@ -4,11 +4,9 @@ import { StyleSheet, View, Text } from "react-native";
 import { Icon } from "native-base";
 
 class Main extends React.Component {
-  static navigationOptions = {
-    title: "Create Field - step 1",
-    headerBackTitle: null
-  };
   render() {
+    const { field } = this.props;
+
     return (
       <View style={styles.container}>
         <View style={styles.colFlexEnd}>
@@ -38,9 +36,14 @@ class Main extends React.Component {
             alignItems: "center"
           }}
         >
-          <View>
-            <Text>Main</Text>
-          </View>
+          {field && (
+            <View style={styles.field}>
+              <Text style={{ fontSize: 20 }}>{field.name}</Text>
+              <Text style={{ color: "teal", fontSize: 16 }}>
+                {field.irrigationDate}
+              </Text>
+            </View>
+          )}
         </View>
       </View>
     );
@@ -62,6 +65,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center"
+  },
+  field: {
+    height: 100,
+
+    padding: 15
   }
 });
 

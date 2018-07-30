@@ -33,11 +33,12 @@ class SwiperMain extends React.Component {
       >
         <ForecastScreen idx={this.state.idx} />
         <Main
+          field={this.props.app.fieldsStore.selectedField}
           idx={this.state.idx}
           scrollBack={this.scrollBack}
           scrollForward={this.scrollForward}
         />
-        <FieldsScreen idx={this.state.idx} />
+        <FieldsScreen idx={this.state.idx} scrollBack={this.scrollBack} />
       </Swiper>
     );
   }

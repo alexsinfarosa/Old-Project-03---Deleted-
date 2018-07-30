@@ -23,12 +23,7 @@ class Fields extends Component {
   };
 
   render() {
-    const {
-      fields,
-      removeField,
-      selectField,
-      setMainScreenIdx
-    } = this.props.app.fieldsStore;
+    const { fields, removeField, selectField } = this.props.app.fieldsStore;
 
     // Buttons
     const swipeoutBtns = [
@@ -52,7 +47,13 @@ class Fields extends Component {
           this.setState({ fieldID: field.id });
         }}
       >
-        <TouchableOpacity onPress={this.props.scrollBack}>
+        <TouchableOpacity
+          onPress={() => {
+            this.props.scrollBack();
+            console.log(field.id);
+            selectField(field.id);
+          }}
+        >
           <View style={styles.field}>
             <Text style={{ fontSize: 20 }}>{field.name}</Text>
             <Text style={{ color: "teal", fontSize: 16 }}>

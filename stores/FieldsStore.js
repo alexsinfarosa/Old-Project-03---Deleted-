@@ -1,12 +1,4 @@
-import {
-  decorate,
-  observable,
-  action,
-  computed,
-  reaction,
-  when,
-  toJS
-} from "mobx";
+import { decorate, observable, action, computed, reaction, when } from "mobx";
 import ParamsStore from "./ParamsStore";
 import { AsyncStorage } from "react-native";
 
