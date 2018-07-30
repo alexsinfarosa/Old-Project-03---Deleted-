@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   },
   main: {
     flex: 3,
-    padding: 8
+    padding: 16
     // backgroundColor: "tomato"
   },
   bottom: {
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
 class FieldLocation extends React.Component {
   render() {
     const { latLon, setLatLon, setName } = this.props.app.fieldsStore;
-    console.log(latLon);
+    const { scrollForward } = this.props;
     return (
       <View style={styles.root}>
         <View style={styles.top}>
@@ -89,9 +89,8 @@ class FieldLocation extends React.Component {
 
         <View style={styles.bottom}>
           <Button
-            // disabled={latLon ? false : true}
-            onPress={() => this.props.navigation.navigate("Step2")}
-            // onPress={() => console.log("Step2")}
+            disabled={latLon ? false : true}
+            onPress={scrollForward}
             title="Select Date"
             color="white"
           />

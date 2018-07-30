@@ -1,69 +1,123 @@
 import React from "react";
 import { inject, observer } from "mobx-react";
-import { StyleSheet, View, Text } from "react-native";
+import DatePicker from "react-native-datepicker";
+
+import { View, Text, StyleSheet, Button } from "react-native";
 import { Icon } from "native-base";
+
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+    justifyContent: "center"
+    // backgroundColor: "pink"
+  },
+  top: {
+    flexDirection: "row",
+    flex: 0.7,
+    padding: 8,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "white"
+  },
+  main: {
+    flex: 3,
+    padding: 16
+    // backgroundColor: "tomato"
+  },
+  bottom: {
+    flex: 0.3,
+    padding: 8,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#1faadb"
+  },
+  h1: {
+    fontSize: 20
+  }
+});
 
 class FieldDate extends React.Component {
   render() {
+    const {
+      latLon,
+      irrigationDate,
+      setIrrigationDate,
+      addField
+    } = this.props.app.fieldsStore;
+    const { scrollForward, scrollBack } = this.props;
+
     return (
-      <View style={styles.container}>
-        <View style={styles.colFlexEnd}>
-          <View style={styles.colToRow}>
-            <View style={{ flex: 1, alignItems: "center" }}>
-              <Text />
-            </View>
-            <View style={{ flex: 2, alignItems: "center" }}>
-              <Text style={{ fontSize: 20 }}>Forecast</Text>
-              <Icon
-                name="cloudy"
-                // active={this.props.idx === 0 ? true : false}
-                style={{ color: "#355691" }}
-              />
-            </View>
-            <View style={{ flex: 1, alignItems: "center" }}>
-              <Text />
-            </View>
+      <View style={styles.root}>
+        <View style={styles.top}>
+          <Icon name="ios-arrow-back" onPress={scrollBack} />
+          <View
+            style={{
+              flex: 5,
+              alignItems: "center",
+              paddingBottom: 7
+            }}
+          >
+            <Text style={styles.h1}>Date of last irrigation</Text>
           </View>
+
+          <Button
+            style={{
+              flex: 1,
+              alignItems: "flex-start"
+            }}
+            onPress={() => console.log("c")}
+            title=""
+          />
         </View>
 
-        <View
-          style={{
-            flex: 8,
-            justifyContent: "center",
-            alignItems: "center"
-          }}
-        >
-          <View>
-            <Text>Field Date</Text>
-          </View>
+        <View style={styles.main}>
+          <DatePicker
+            style={{ width: "100%" }}
+            date={irrigationDate}
+            mode="date"
+            placeholder="Select Date"
+            format="MMMM Do, YYYY"
+            showIcon={false}
+            // minDate="2016-05-01"
+            maxDate={new Date()}
+            confirmBtnText="Confirm"
+            cancelBtnText="Cancel"
+            customStyles={{
+              dateText: {
+                fontSize: 16,
+                color: "#646464"
+              },
+              placeholderText: {
+                fontSize: 16,
+                color: "#B0B0B0"
+              },
+              dateInput: {
+                // marginLeft: 36
+                borderWidth: 0,
+                borderBottomWidth: 1,
+                borderColor: "#171717",
+                alignItems: "flex-start"
+              }
+              // ... You can check the source to find the other keys.
+            }}
+            onDateChange={date => setIrrigationDate(date)}
+          />
         </View>
-        {/**<View style={{ flex: 1 }}>
-          <View style={styles.colCentered}>
-            <Text>Footer</Text>
-          </View>
-        </View>**/}
+
+        <View style={styles.bottom}>
+          <Button
+            disabled={latLon ? false : true}
+            onPress={() => {
+              addField();
+              scrollForward();
+            }}
+            title="Create Field"
+            color="white"
+          />
+        </View>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: { flex: 1 },
-  colFlexEnd: {
-    flex: 1.1,
-    justifyContent: "flex-end",
-    alignItems: "center",
-    marginTop: 8
-  },
-  colToRow: {
-    flexDirection: "row"
-  },
-  colCentered: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center"
-  }
-});
 
 export default inject("app")(observer(FieldDate));

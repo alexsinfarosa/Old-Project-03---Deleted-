@@ -7,6 +7,7 @@ import Fields from "../../components/Fields";
 
 class FieldsScreen extends React.Component {
   render() {
+    console.log(this.props.idx);
     return (
       <View style={styles.container}>
         <View style={styles.colFlexEnd}>
