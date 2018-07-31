@@ -7,6 +7,8 @@ import Fields from "../../components/Fields";
 
 class FieldsScreen extends React.Component {
   render() {
+    const { setDefaultValueMap } = this.props.app.fieldsStore;
+
     return (
       <View style={styles.container}>
         <View style={styles.colFlexEnd}>
@@ -23,7 +25,13 @@ class FieldsScreen extends React.Component {
               />
             </View>
             <View style={{ flex: 1, alignItems: "center" }}>
-              <Icon name="ios-add" onPress={() => this.props.scrollTo(-2)} />
+              <Icon
+                name="ios-add"
+                onPress={() => {
+                  setDefaultValueMap("ciccio");
+                  this.props.scrollTo(-2);
+                }}
+              />
             </View>
           </View>
         </View>

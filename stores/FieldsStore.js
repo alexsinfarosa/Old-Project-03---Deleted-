@@ -32,6 +32,9 @@ export default class FieldsStore {
   setLatLon = d => (this.latLon = d);
   setName = d => (this.name = d);
 
+  defaultValueMap = "";
+  setDefaultValueMap = d => (this.defaultValueMap = d);
+
   get asJson() {
     return {
       id: this.id,
@@ -54,6 +57,7 @@ export default class FieldsStore {
     field.isSelected = true;
     this.fields.push(field);
     this.writeToLocalstorage();
+    this.irrigationDate = null;
   };
 
   selectField = id => {
@@ -142,5 +146,7 @@ decorate(FieldsStore, {
   selectField: action,
   setIrrigationDate: action,
   setLatLon: action,
-  data: observable
+  data: observable,
+  defaultValueMap: observable,
+  setDefaultValueMap: action
 });

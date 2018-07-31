@@ -36,7 +36,12 @@ const styles = StyleSheet.create({
 
 class FieldLocation extends React.Component {
   render() {
-    const { latLon, setLatLon, setName } = this.props.app.fieldsStore;
+    const {
+      latLon,
+      setLatLon,
+      setName,
+      defaultValueMap
+    } = this.props.app.fieldsStore;
     const { scrollForward } = this.props;
 
     return (
@@ -57,6 +62,7 @@ class FieldLocation extends React.Component {
               setLatLon(details.geometry.location);
               setName(data.description);
             }}
+            getDefaultValue={() => defaultValueMap}
             query={{
               // available options: https://developers.google.com/places/web-service/autocomplete
               key: "AIzaSyAUk9begav92si1W6yVe39GlOO7Au2aB0A",
