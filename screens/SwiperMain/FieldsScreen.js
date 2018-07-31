@@ -23,7 +23,7 @@ class FieldsScreen extends React.Component {
               />
             </View>
             <View style={{ flex: 1, alignItems: "center" }}>
-              <Text />
+              <Icon name="ios-add" onPress={() => this.props.scrollTo(-2)} />
             </View>
           </View>
         </View>

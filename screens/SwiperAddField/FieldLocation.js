@@ -38,6 +38,7 @@ class FieldLocation extends React.Component {
   render() {
     const { latLon, setLatLon, setName } = this.props.app.fieldsStore;
     const { scrollForward } = this.props;
+
     return (
       <View style={styles.root}>
         <View style={styles.top}>

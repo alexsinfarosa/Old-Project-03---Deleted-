@@ -19,6 +19,7 @@ class SwiperAddField extends React.Component {
 
   scrollForward = () => this.myRef.current.scrollBy(1);
   scrollBack = () => this.myRef.current.scrollBy(-1);
+  scrollTo = i => this.myRef.current.scrollBy(i);
 
   render() {
     return (
@@ -42,7 +43,7 @@ class SwiperAddField extends React.Component {
         />
         <SwiperMain
           idx={this.state.idx}
-          // scrollBack={this.scrollBack}
+          scrollTo={this.scrollTo}
           // scrollForward={this.scrollForward}
         />
       </Swiper>

@@ -98,6 +98,30 @@ export default class FieldsStore {
       console.log(error);
     }
   };
+
+  data = [
+    {
+      date: "July 31",
+      noDeficit: 0,
+      deficitNoStress: 0,
+      deficitStress: 0,
+      severeStress: 0
+    },
+    {
+      date: "August 1",
+      noDeficit: 3,
+      deficitNoStress: 3,
+      deficitStress: 3,
+      severeStress: 3
+    },
+    {
+      date: "August 2",
+      noDeficit: 9,
+      deficitNoStress: 9,
+      deficitStress: 9,
+      severeStress: 9
+    }
+  ];
 }
 
 decorate(FieldsStore, {
@@ -117,5 +141,6 @@ decorate(FieldsStore, {
   selectedField: computed,
   selectField: action,
   setIrrigationDate: action,
-  setLatLon: action
+  setLatLon: action,
+  data: observable
 });

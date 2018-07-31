@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
 
-import { StyleSheet, TouchableOpacity, TouchableHighlight } from "react-native";
-import { Container, Content, View, Text } from "native-base";
-import { Row, Col, Grid } from "react-native-easy-grid";
+import { StyleSheet, TouchableOpacity } from "react-native";
+import { Content, View, Text } from "native-base";
 
 import Swipeout from "react-native-swipeout";
 
@@ -50,7 +49,6 @@ class Fields extends Component {
         <TouchableOpacity
           onPress={() => {
             this.props.scrollBack();
-            console.log(field.id);
             selectField(field.id);
           }}
         >

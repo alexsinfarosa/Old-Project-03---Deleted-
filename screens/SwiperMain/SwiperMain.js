@@ -38,7 +38,11 @@ class SwiperMain extends React.Component {
           scrollBack={this.scrollBack}
           scrollForward={this.scrollForward}
         />
-        <FieldsScreen idx={this.state.idx} scrollBack={this.scrollBack} />
+        <FieldsScreen
+          idx={this.state.idx}
+          scrollBack={this.scrollBack}
+          scrollTo={this.props.scrollTo}
+        />
       </Swiper>
     );
   }

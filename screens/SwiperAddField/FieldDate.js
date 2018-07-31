@@ -42,10 +42,11 @@ class FieldDate extends React.Component {
       latLon,
       irrigationDate,
       setIrrigationDate,
-      addField
+      addField,
+      selectedField
     } = this.props.app.fieldsStore;
     const { scrollForward, scrollBack } = this.props;
-
+    console.log(selectedField);
     return (
       <View style={styles.root}>
         <View style={styles.top}>

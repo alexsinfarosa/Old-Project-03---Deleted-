@@ -3,6 +3,8 @@ import { inject, observer } from "mobx-react";
 import { StyleSheet, View, Text } from "react-native";
 import { Icon } from "native-base";
 
+import ThreeDaysGraph from "../../components/ThreeDaysGraph";
+
 class Main extends React.Component {
   render() {
     const { field } = this.props;
@@ -44,6 +46,8 @@ class Main extends React.Component {
               </Text>
             </View>
           )}
+
+          <ThreeDaysGraph />
         </View>
       </View>
     );
@@ -68,8 +72,7 @@ const styles = StyleSheet.create({
   },
   field: {
     height: 100,
-
-    padding: 15
+    padding: 8
   }
 });
 
