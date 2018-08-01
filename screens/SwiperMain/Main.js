@@ -1,7 +1,7 @@
 import React from "react";
 import { inject, observer } from "mobx-react";
-import { StyleSheet, View, Text } from "react-native";
-import { Icon } from "native-base";
+import { StyleSheet, View } from "react-native";
+import { Icon, Button, Text } from "native-base";
 
 import ThreeDaysGraph from "../../components/ThreeDaysGraph";
 
@@ -38,12 +38,18 @@ class Main extends React.Component {
             alignItems: "center"
           }}
         >
-          {field && (
+          {field ? (
             <View style={styles.field}>
               <Text style={{ fontSize: 20 }}>{field.name}</Text>
               <Text style={{ color: "teal", fontSize: 16 }}>
                 {field.irrigationDate}
               </Text>
+            </View>
+          ) : (
+            <View>
+              <Button bordered style={{ borderColor: "#355691" }}>
+                <Text style={{ color: "#355691" }}>Add Field</Text>
+              </Button>
             </View>
           )}
 

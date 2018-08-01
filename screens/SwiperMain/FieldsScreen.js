@@ -28,8 +28,8 @@ class FieldsScreen extends React.Component {
               <Icon
                 name="ios-add"
                 onPress={() => {
-                  setDefaultValueMap("ciccio");
                   this.props.scrollTo(-2);
+                  setDefaultValueMap("ciccio");
                 }}
               />
             </View>
@@ -38,13 +38,10 @@ class FieldsScreen extends React.Component {
         <View
           style={{
             flex: 8,
-            justifyContent: "center",
-            alignItems: "center"
+            justifyContent: "center"
           }}
         >
-          <View>
-            <Fields scrollBack={this.props.scrollBack} />
-          </View>
+          <Fields scrollBack={this.props.scrollBack} />
         </View>
       </View>
     );

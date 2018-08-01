@@ -25,6 +25,7 @@ class SwiperMain extends React.Component {
     return (
       <Swiper
         showsButtons={false}
+        showsPagination={false}
         loop={false}
         index={1}
         ref={this.myRef}

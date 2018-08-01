@@ -8,6 +8,7 @@ import Swipeout from "react-native-swipeout";
 
 const styles = StyleSheet.create({
   field: {
+    width: "100%",
     height: 100,
     borderBottomWidth: 1,
     backgroundColor: "#fff",
