@@ -8,26 +8,28 @@ import ThreeDaysGraph from "../../components/ThreeDaysGraph";
 class Main extends React.Component {
   render() {
     const { field } = this.props;
+    const { setDefaultValueMap } = this.props.app.fieldsStore;
 
     return (
       <View style={styles.container}>
         <View style={styles.colFlexEnd}>
           <View style={styles.colToRow}>
             <View style={{ flex: 1, alignItems: "center" }}>
-              <Icon onPress={this.props.scrollBack} name="cloudy" />
+              <Icon
+                onPress={this.props.scrollBack}
+                name="cloudy"
+                style={{ fontSize: 23 }}
+              />
             </View>
             <View style={{ flex: 2, alignItems: "center" }}>
-              <Text
-                style={{
-                  color: this.props.idx === 1 ? "#355691" : null,
-                  fontSize: 20
-                }}
-              >
-                Main
-              </Text>
+              <Icon name="stats" style={{ color: "#355691" }} />
             </View>
             <View style={{ flex: 1, alignItems: "center" }}>
-              <Icon onPress={this.props.scrollForward} name="water" />
+              <Icon
+                onPress={this.props.scrollForward}
+                name="water"
+                style={{ fontSize: 23 }}
+              />
             </View>
           </View>
         </View>
@@ -47,7 +49,14 @@ class Main extends React.Component {
             </View>
           ) : (
             <View>
-              <Button bordered style={{ borderColor: "#355691" }}>
+              <Button
+                bordered
+                style={{ borderColor: "#355691" }}
+                onPress={() => {
+                  this.props.scrollTo(-2);
+                  setDefaultValueMap("ciccio");
+                }}
+              >
                 <Text style={{ color: "#355691" }}>Add Field</Text>
               </Button>
             </View>

@@ -32,12 +32,16 @@ class SwiperMain extends React.Component {
         onIndexChanged={idx => this.setState({ idx })}
         activeDotColor="#355691"
       >
-        <ForecastScreen idx={this.state.idx} />
+        <ForecastScreen
+          idx={this.state.idx}
+          scrollForward={this.scrollForward}
+        />
         <Main
           field={this.props.app.fieldsStore.selectedField}
           idx={this.state.idx}
           scrollBack={this.scrollBack}
           scrollForward={this.scrollForward}
+          scrollTo={this.props.scrollTo}
         />
         <FieldsScreen
           idx={this.state.idx}

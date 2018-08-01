@@ -13,15 +13,14 @@ class ForecastScreen extends React.Component {
               <Text />
             </View>
             <View style={{ flex: 2, alignItems: "center" }}>
-              <Text style={{ fontSize: 20 }}>Forecast</Text>
-              <Icon
-                name="cloudy"
-                // active={this.props.idx === 0 ? true : false}
-                style={{ color: "#355691" }}
-              />
+              <Icon name="cloudy" style={{ color: "#355691" }} />
             </View>
             <View style={{ flex: 1, alignItems: "center" }}>
-              <Text />
+              <Icon
+                onPress={this.props.scrollForward}
+                name="stats"
+                style={{ fontSize: 23 }}
+              />
             </View>
           </View>
         </View>
@@ -52,8 +51,7 @@ const styles = StyleSheet.create({
   colFlexEnd: {
     flex: 1.1,
     justifyContent: "flex-end",
-    alignItems: "center",
-    marginTop: 8
+    alignItems: "center"
   },
   colToRow: {
     flexDirection: "row"
@@ -63,6 +61,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center"
+  },
+  field: {
+    height: 100,
+    padding: 8
   }
 });
 

@@ -14,24 +14,17 @@ class FieldsScreen extends React.Component {
         <View style={styles.colFlexEnd}>
           <View style={styles.colToRow}>
             <View style={{ flex: 1, alignItems: "center" }}>
-              <Text />
+              <Icon
+                onPress={this.props.scrollBack}
+                name="stats"
+                style={{ fontSize: 23 }}
+              />
             </View>
             <View style={{ flex: 2, alignItems: "center" }}>
-              <Text style={{ fontSize: 20 }}>Fields</Text>
-              <Icon
-                name="water"
-                // active={this.props.idx === 2 ? true : false}
-                style={{ color: "#355691" }}
-              />
+              <Icon name="water" style={{ color: "#355691" }} />
             </View>
             <View style={{ flex: 1, alignItems: "center" }}>
-              <Icon
-                name="ios-add"
-                onPress={() => {
-                  this.props.scrollTo(-2);
-                  setDefaultValueMap("ciccio");
-                }}
-              />
+              <Text />
             </View>
           </View>
         </View>
@@ -53,8 +46,7 @@ const styles = StyleSheet.create({
   colFlexEnd: {
     flex: 1.1,
     justifyContent: "flex-end",
-    alignItems: "center",
-    marginTop: 8
+    alignItems: "center"
   },
   colToRow: {
     flexDirection: "row"
@@ -64,6 +56,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center"
+  },
+  field: {
+    height: 100,
+    padding: 8
   }
 });
 
